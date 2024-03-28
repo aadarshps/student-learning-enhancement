@@ -26,3 +26,6 @@ class StudentForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['name','mobile_number','date_of_birth','learning_style']
+        widgets = {
+            'date_of_birth': forms.DateInput(attrs={'type': 'date'}),
+        }

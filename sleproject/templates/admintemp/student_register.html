@@ -1,4 +1,19 @@
 {% extends 'admintemp/index.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
-
+<div class="col-12 col-lg-8 order-2 order-md-3 order-lg-2 mb-4">
+  <div class="card">
+    <div class="row row-bordered g-0">
+      <h5 class="card-header m-0 me-2 pb-3">Student Signup Form</h5>
+      <div class="card-body">
+        <form method="post">
+          {% csrf_token %}
+          {{form|crispy}}
+          {{u_form|crispy}}
+          <button type="submit" class="btn rounded-pill btn-info">submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

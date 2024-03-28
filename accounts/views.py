@@ -6,6 +6,9 @@ from accounts.forms import *
 # Create your views here.
 logger = logging.getLogger(__name__)
 
+def admin_dashboard(request):
+    return render(request,'admintemp/index.html')
+
 def student_signup(request):
     try:
         if request.method == 'POST':
@@ -29,7 +32,7 @@ def student_signup(request):
 
 def student_views(request):
     try:
-        std = User.objects.filter(username=request.user)
+        std = User.objects.filter(role=3)
         data = UserProfile.objects.filter(user__in=std)
     except Exception as e:
         logger.error(f"An error occurred during signup: {e}")    
